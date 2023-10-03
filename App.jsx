@@ -6,17 +6,10 @@
  */
 
 import React from 'react';
-import { View } from 'react-native';
-import List_Card from './src/listOfCard';
-import HomeScreen from './src/HomeScreen';
-import LoginScreen from './src/LoginScreen';
+import NavigationScreen from './src/NavigationScreen';
 function App() {
-  return (
-    <View>
-      {/* <List_Card></List_Card> */}
-      {/* <HomeScreen></HomeScreen> */}
-          <LoginScreen></LoginScreen>
-    </View>
+  return ( 
+    <NavigationScreen />
   )
 };
 
