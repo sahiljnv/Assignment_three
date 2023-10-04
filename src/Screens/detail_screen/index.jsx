@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
-import React, { useEffect } from 'react'
-import { Data } from '../Data/DATA'
+import {Text, View, Image } from 'react-native'
+import React from 'react'
+import { Data } from '../../Data/DATA'
+import { styles } from './style';
 export default function DetailScreen({ route, navigation }) {
     const profilId = route.params.profilId;
     const detailOfPerson = Data.find((detail) => detail.id === profilId);
@@ -24,26 +25,3 @@ export default function DetailScreen({ route, navigation }) {
     )
 }
 
-const styles = StyleSheet.create({
-    mainContainer: {
-        flex: 1,
-        paddingHorizontal: 10,
-        paddingTop: 5
-    },
-    imgContainer:{
-        paddingBottom:40,
-        borderColor:"black",
-        borderBottomWidth:2
-    },
-    img: {
-        width: '100%',
-        height: 250
-    },
-    detail: {
-        alignItems: 'center'
-    },
-    detailItem: {
-        fontSize: 30,
-        color: 'black'
-    }
-})

@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View,Pressable,Image } from 'react-native'
-import React, {useEffect} from 'react'
-
+import { Text, View,Pressable,Image } from 'react-native'
+import React from 'react'
+import { styles } from './style'
 export default function CardButton({name,contact,email,navigation,imgSrc,profilId}) {
 const buttonPressHandler = ()=>{
   navigation.navigate('Detail',{profilId:profilId})
@@ -19,8 +19,3 @@ const buttonPressHandler = ()=>{
   )
 }
 
-const styles = StyleSheet.create({
-  button:{
-    opacity:0.5
- }
-})
