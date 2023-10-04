@@ -2,7 +2,7 @@ import {Text, View, Image } from 'react-native'
 import React from 'react'
 import { Data } from '../../Data/DATA'
 import { styles } from './style';
-export default function DetailScreen({ route, navigation }) {
+export default function DetailScreen({ route }) {
     const profilId = route.params.profilId;
     const detailOfPerson = Data.find((detail) => detail.id === profilId);
     return (

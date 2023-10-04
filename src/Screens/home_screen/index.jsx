@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import Arrow from 'react-native-vector-icons/dist/MaterialIcons';
-
+import { styles } from './style';
 const HomeScreen = () => {
     return (
         <View style={styles.mainContainer}>

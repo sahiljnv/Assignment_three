@@ -5,30 +5,16 @@ import Apple from 'react-native-vector-icons/dist/AntDesign';
 import Google from 'react-native-vector-icons/dist/FontAwesome';
 import Close from 'react-native-vector-icons/dist/EvilIcons';
 
-
+import { condition } from '../../utils/utility';
 const LoginScreen = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
-    const condition = ()=>{
-        
-        if (!password.length > 0) {
-            return false;
-        }
-        if(!email.length > 0){
-            return false;
-        }
-
-        if ((password.length >= 8 && email.length >= 11)){
-            return true;
-        }
-        
-        return false;
-
-
-    }
-
+    const [checkCondition, setCondition] = useState(false);
+    useEffect(()=>{
+        setCondition( condition(password,email))
+    },[password,email])
     return (
         <View style={styles.mainContainer}>
             <View style={styles.upperContainer}>
@@ -73,10 +59,10 @@ const LoginScreen = () => {
                 </Modal>
 
 
-                <Pressable onPress={() => {  setModalVisible(condition)} }style={[styles.lowerContainerButton, { backgroundColor: condition() ? '#a5fc83' : '#f1f2f6' }]}>
+                <Pressable onPress={() => {  setModalVisible(condition)} }style={[styles.lowerContainerButton, { backgroundColor:checkCondition ? '#a5fc83' : '#f1f2f6' }]}>
 
-                    <Text style={[{ color:condition() ? 'black' : '#9da5b8' }, styles.lowerContainerButtonText]}>Continue</Text>
-                    <Arrow name='keyboard-arrow-right' color={condition() ? 'black' : '#9da5b8'} size={20} style={styles.lowerContainerButtonIcon}></Arrow>
+                    <Text style={[{ color:checkCondition ? 'black' : '#9da5b8' }, styles.lowerContainerButtonText]}>Continue</Text>
+                    <Arrow name='keyboard-arrow-right' color={checkCondition ? 'black' : '#9da5b8'} size={20} style={styles.lowerContainerButtonIcon}></Arrow>
 
                 </Pressable>
                 <View style={styles.lowerContainerHorizontelLine}>
